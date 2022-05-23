@@ -547,7 +547,7 @@ export class ListenerRegistry implements SubscriptionListener {
   private validatePattern (socketWrapper: SocketWrapper, message: ListenMessage): RegExp | null {
     try {
       return new RegExp(message.name)
-    } catch (e) {
+    } catch (e: any) {
       socketWrapper.sendMessage({
         topic: this.topic,
         action: this.actions.INVALID_LISTEN_REGEX,

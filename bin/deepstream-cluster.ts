@@ -66,7 +66,7 @@ function action () {
               ds.on('stopped', () => process.exit(0))
               ds.stop()
             })
-        } catch (err) {
+        } catch (err: any) {
           console.error(err.toString())
           process.exit(1)
         }

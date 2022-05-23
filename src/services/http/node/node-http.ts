@@ -74,10 +74,15 @@ export class NodeHTTP extends DeepstreamPlugin implements DeepstreamHTTPService 
       this.server = httpShutdown(server)
       this.server.on('request', this.onRequest.bind(this))
       this.server.on('upgrade', this.onUpgrade.bind(this))
-      this.server.listen(this.pluginOptions.port, this.pluginOptions.host, () => {
+      let port: number
+      if (process.env.PORT)
+       port = Number(process.env.PORT)
+      else
+        port = 6020
+      this.server.listen(port, this.pluginOptions.host, () => {
           const serverAddress = this.server.address() as WebSocket.AddressInfo
           const address = serverAddress.address
-          const port = serverAddress.port
+          // const port = serverAddress.port
           this.services.logger.info(EVENT.INFO, `Listening for http connections on ${address}:${port}`)
           this.services.logger.info(EVENT.INFO, `Listening for health checks on path ${this.pluginOptions.healthCheckPath}`)
           this.registerGetPathPrefix(this.pluginOptions.healthCheckPath, (meta: DeepstreamHTTPMeta, response: DeepstreamHTTPResponse) => {

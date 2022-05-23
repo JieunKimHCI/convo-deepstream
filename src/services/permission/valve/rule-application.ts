@@ -91,7 +91,7 @@ export default class RuleApplication {
 
     try {
       result = this.params.rule.fn.apply({}, args)
-    } catch (error) {
+    } catch (error: any) {
       if (this.isReady()) {
         this.onRuleError(error)
         return

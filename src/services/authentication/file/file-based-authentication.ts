@@ -101,7 +101,7 @@ export class FileBasedAuthentication extends DeepstreamPlugin implements Deepstr
         })
         validateHashingAlgorithm(settings.hash)
       }
-    } catch (e) {
+    } catch (e: any) {
       this.services.logger.fatal(EVENT.PLUGIN_INITIALIZATION_ERROR, 'Validating settings failed for file auth', e.message)
     }
 

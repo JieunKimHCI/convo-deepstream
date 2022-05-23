@@ -34,7 +34,7 @@ export class JSONSocketWrapper extends WSSocketWrapper<string> {
         message.parsedData = JSON.parse(message.data as string)
       }
       return true
-    } catch (e) {
+    } catch (e: any) {
       return e
     }
   }

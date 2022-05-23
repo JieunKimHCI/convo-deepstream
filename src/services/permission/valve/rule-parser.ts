@@ -63,7 +63,7 @@ export const validate = (rule: string | boolean, section: ValveSection, type: Ru
   try {
     // tslint:disable-next-line
     new Function(rule)
-  } catch (e) {
+  } catch (e: any) {
     return e.toString()
   }
 

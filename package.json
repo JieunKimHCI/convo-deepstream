@@ -27,6 +27,7 @@
   "scripts": {
     "start:inspect": "npm run tsc && node --inspect dist/bin/deepstream",
     "start": "ts-node --transpile-only --project tsconfig.json --files ./bin/deepstream.ts start",
+    "build": "tsc",
     "tsc": "sh scripts/tsc.sh",
     "license": "mkdir -p build && node scripts/license-aggregator > build/LICENSE && cat scripts/resources/missing-licenses.txt >> build/LICENSE",
     "lint": "tslint --project .",
@@ -71,7 +72,11 @@
     "source-map-support": "^0.5.19",
     "uuid": "^8.3.1",
     "uWebSockets.js": "github:uNetworking/uWebSockets.js#v20.5.0",
-    "ws": "^7.5.6"
+    "ws": "^7.5.6",
+    "ts-essentials": "^7.0.1",
+    "ts-node": "^9.0.0",
+    "tslint": "^6.1.3",
+    "typescript": "^4.1.2"
   },
   "devDependencies": {
     "@deepstream/client": "^6.0.1",
